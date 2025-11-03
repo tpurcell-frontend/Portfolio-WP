@@ -15,6 +15,30 @@
     // Write the "Task" table in the database when first activating the plugin
     register_activation_hook(__FILE__, 'todo_list_create_table');
 
+    function todo_list_create_table() {
+        global $wpdb;
+
+        // Define table name (with WordPress prefix for safety)
+        $table_name = $wpdb->prefix . 'tasks';
+
+        // Character set / collation (matches WP settings)
+        $charset_collate = $wpdb->get_charset_collate();
+
+        // SQL to create the table if it doesn’t exist
+        $sql = "CREATE TABLE $table_name (
+            ID mediumint(9) NOT NULL AUTO_INCREMENT,
+            item varchar(255) NOT NULL,
+            status tinyint(1) NOT NULL DEFAULT 0,
+            PRIMARY KEY  (ID)
+        ) $charset_collate;";
+
+        // Include the upgrade library for dbDelta()
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+        // Run the SQL safely (creates or updates structure)
+        dbDelta($sql);
+    }
+
     /**
      * Enqueue plugin scripts and styles
      */
@@ -40,30 +64,6 @@
         );
     }
     add_action('wp_enqueue_scripts', 'todo_list_enqueue_assets');
-
-    function todo_list_create_table() {
-        global $wpdb;
-
-        // Define table name (with WordPress prefix for safety)
-        $table_name = $wpdb->prefix . 'tasks';
-
-        // Character set / collation (matches WP settings)
-        $charset_collate = $wpdb->get_charset_collate();
-
-        // SQL to create the table if it doesn’t exist
-        $sql = "CREATE TABLE $table_name (
-            ID mediumint(9) NOT NULL AUTO_INCREMENT,
-            item varchar(255) NOT NULL,
-            status tinyint(1) NOT NULL DEFAULT 0,
-            PRIMARY KEY  (ID)
-        ) $charset_collate;";
-
-        // Include the upgrade library for dbDelta()
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-
-        // Run the SQL safely (creates or updates structure)
-        dbDelta($sql);
-    }
 
     // Database Call
     function todo_list_display() {

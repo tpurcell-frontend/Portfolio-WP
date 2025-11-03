@@ -153,7 +153,8 @@
   flex-direction: column;
   justify-content: center;
   margin: 0;
-  max-width: 70%;
+  padding: 0 0 50px;
+  max-width: 100%;
 }
 
 .form__wrapper {
@@ -200,12 +201,12 @@ input[type=checkbox] {
 input[type=checkbox].checked {
   border: none;
   background-color: #29ABE2;
-  background-image: url("/wp-content/uploads/checkbox.svg");
+  background-image: url("/wp-content/uploads/check.svg");
   background-size: cover;
   color: #29ABE2;
 }
 input[type=checkbox].theme.checked:checked {
-  background-image: url("/wp-content/uploads/checkbox-orange.svg");
+  background-image: url("/wp-content/uploads/check-orange.svg");
 }
 
 .download__wrapper a {
@@ -293,7 +294,6 @@ input[type=checkbox].theme.checked:checked {
   padding: 3px;
   border-radius: 50%;
   margin-right: 0;
-  background-image: url("/wp-content/uploads/close-icon.svg");
   background-color: #c22032;
   background-size: 8px;
   background-repeat: no-repeat;
@@ -317,9 +317,11 @@ input[type=checkbox].theme.checked:checked {
 .btn__wrapper {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
 }
 .btn__wrapper .btn {
-  margin-bottom: 1em;
+  margin: 0;
 }
 
 .bottom.flex__wrapper {
@@ -333,6 +335,7 @@ input[type=checkbox].theme.checked:checked {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 0 75px;
   }
   .form__wrapper {
     width: 650px;
@@ -391,7 +394,6 @@ input[type=checkbox].theme.checked:checked {
   }
   .btn__wrapper {
     margin-bottom: 2em;
-    display: block;
     max-width: 100%;
   }
   .btn__wrapper .btn + .btn {
@@ -407,9 +409,6 @@ input[type=checkbox].theme.checked:checked {
   }
   #tasksRemaining {
     margin: 0;
-  }
-  .download__wrapper {
-    margin-top: 1.5em;
   }
 }
 @media (min-width: 992px) {
@@ -429,6 +428,9 @@ input[type=checkbox].theme.checked:checked {
   }
 }
 @media (min-width: 1200px) {
+  .outer__wrapper {
+    padding: 0 0 100px;
+  }
   .form__wrapper {
     width: 790px;
     padding: 56px;

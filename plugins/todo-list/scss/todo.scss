@@ -180,7 +180,8 @@ visibility: visible;
 	flex-direction: column;
 	justify-content: center;
 	margin: 0;
-	max-width: 70%;
+    padding: 0 0 50px;
+    max-width: 100%;
 }
 
 .form__wrapper { 
@@ -229,7 +230,7 @@ input[type="checkbox"] {
 	&.checked {
 		border: none;
 		background-color: $color__blue;
-		background-image: url('/wp-content/uploads/checkbox.svg');
+		background-image: url('/wp-content/uploads/check.svg');
 		background-size: cover;
 		color: $color__blue;
 	}
@@ -237,7 +238,7 @@ input[type="checkbox"] {
 	&.theme.checked {
 
 		&:checked {
-			background-image: url('/wp-content/uploads/checkbox-orange.svg');
+			background-image: url('/wp-content/uploads/check-orange.svg');
 		}
 	}
 }
@@ -342,7 +343,6 @@ input[type="checkbox"] {
 		padding: 3px;
 		border-radius: 50%;
 		margin-right: 0;
-		background-image: url('/wp-content/uploads/close-icon.svg');
 		background-color: $color__red;
 		background-size: 8px;
 		background-repeat: no-repeat;
@@ -370,9 +370,11 @@ input[type="checkbox"] {
 .btn__wrapper {
 	display: flex;
 	flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
 	
 	.btn {
-		margin-bottom: 1em;
+        margin: 0;
 	}
 }
 
@@ -389,6 +391,7 @@ input[type="checkbox"] {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+        padding: 0 0 75px;
 	}
 
 	.form__wrapper {
@@ -475,7 +478,6 @@ input[type="checkbox"] {
 
 	.btn__wrapper {
 		margin-bottom: 2em;
-		display: block;
 		max-width: 100%;
 
 		.btn {
@@ -501,7 +503,7 @@ input[type="checkbox"] {
 	}
 
 	.download__wrapper {
-		margin-top: 1.5em;
+
 	}
 }
 
@@ -537,6 +539,10 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 1200px) {
+
+    .outer__wrapper {
+        padding: 0 0 100px;
+    }
 	
 	.form__wrapper {
 		width: 790px;

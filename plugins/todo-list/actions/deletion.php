@@ -4,7 +4,8 @@
     require(__DIR__ . '/db.php');
 
     //Prepare and bind
-    $stmt = $conn->prepare("TRUNCATE TABLE Tasks");
+    $table_name = 'wp_tasks';
+    $stmt = $conn->prepare("TRUNCATE TABLE $table_name");
 
     //Execute
     $stmt->execute();

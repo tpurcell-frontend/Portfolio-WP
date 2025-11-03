@@ -4,7 +4,8 @@
     require(__DIR__ . '/db.php');
 
     //Prepare and bind
-    $stmt = $conn->prepare("UPDATE Tasks SET status = ?");
+    $table_name = 'wp_tasks';
+    $stmt = $conn->prepare("UPDATE $table_name SET status = ?");
     $value = 0;
     $stmt->bind_param("s", $value);
 

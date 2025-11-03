@@ -12,8 +12,9 @@
             require(__DIR__ . '/db.php');
 
             //Prepare and bind
-            $stmt = $conn->prepare("UPDATE Tasks SET item = ? WHERE ID = ?");
-            $stmt->bind_param("ss", $update[$x], $id[$x]);
+            $table_name = 'wp_tasks';
+            $stmt = $conn->prepare("UPDATE $table_name SET item = ? WHERE ID = ?");
+            $stmt->bind_param("si", $update[$x], $id[$x]);
 
             //Execute
             $stmt->execute();

@@ -6,9 +6,10 @@
     require(__DIR__ . '/db.php');
     
     //Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO Tasks (item, status) VALUES (?, ?)");
+    $table_name = 'wp_tasks';
+    $stmt = $conn->prepare("INSERT INTO $table_name (item, status) VALUES (?, ?)");
     if(!empty($task)) {
-        $stmt->bind_param("ss", $task, $status);
+        $stmt->bind_param("si", $task, $status);
     }
 
     //Execute

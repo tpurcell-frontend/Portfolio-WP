@@ -8,7 +8,8 @@
         require(__DIR__ . '/db.php');
 
         //Prepare and bind
-        $stmt = $conn->prepare("DELETE FROM Tasks WHERE ID = ?");
+        $table_name = 'wp_tasks';
+        $stmt = $conn->prepare("DELETE FROM $table_name WHERE ID = ?");
         $stmt->bind_param("s", $value);
 
         //Execute

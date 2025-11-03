@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
 		var formData = new FormData(document.getElementById('form'));
 		jQuery.ajax({
 			type:'POST',
-			url: "/wp-content/themes/todo/actions/storage.php",
+			url: "/wp-content/plugins/todo-list/actions/storage.php",
 			data:formData,
 			cache:false,
 			contentType: false,
@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				type:'POST',
-				url: "/wp-content/themes/todo/actions/storage.php",
+				url: "/wp-content/plugins/todo-list/actions/storage.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				type:'POST',
-				url: "/wp-content/themes/todo/actions/storage.php",
+				url: "/wp-content/plugins/todo-list/actions/storage.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
 		var formData = new FormData(document.getElementById('form'));
 		jQuery.ajax({
 			method: "POST",
-			url: "/wp-content/themes/todo/actions/update.php",
+			url: "/wp-content/plugins/todo-list/actions/update.php",
 			data:formData,
 			cache:false,
 			contentType: false,
@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/update.php",
+				url: "/wp-content/plugins/todo-list/actions/update.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -102,7 +102,7 @@ jQuery(document).ready(function ($) {
 		var formData = new FormData(document.getElementById('form'));
 		jQuery.ajax({
 			method: "POST",
-			url: "/wp-content/themes/todo/actions/complete.php",
+			url: "/wp-content/plugins/todo-list/actions/complete.php",
 			data:formData,
 			cache:false,
 			contentType: false,
@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/complete.php",
+				url: "/wp-content/plugins/todo-list/actions/complete.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
 		var formData = new FormData(document.getElementById('form'));
 		jQuery.ajax({
 			method: "POST",
-			url: "/wp-content/themes/todo/actions/clear.php",
+			url: "/wp-content/plugins/todo-list/actions/clear.php",
 			data:formData,
 			cache:false,
 			contentType: false,
@@ -149,7 +149,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/clear.php",
+				url: "/wp-content/plugins/todo-list/actions/clear.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -167,7 +167,7 @@ jQuery(document).ready(function ($) {
 		if(confirm("Warning! This will delete the selected task!\nAre you sure?")) {
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/deleteSelect.php",
+				url: "/wp-content/plugins/todo-list/actions/deleteSelect.php",
 				data:formData,
 				cache:false,
 				contentType: false,
@@ -186,7 +186,7 @@ jQuery(document).ready(function ($) {
 			if(confirm("Warning! This will delete the selected task!\nAre you sure?")) {
 				jQuery.ajax({
 					method: "POST",
-					url: "/wp-content/themes/todo/actions/deleteSelect.php",
+					url: "/wp-content/plugins/todo-list/actions/deleteSelect.php",
 					data:formData,
 					cache:false,
 					contentType: false,
@@ -204,7 +204,7 @@ jQuery(document).ready(function ($) {
 		if(confirm("Warning! This will delete all tasks!\nAre you sure?")) {
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/deletion.php",
+				url: "/wp-content/plugins/todo-list/actions/deletion.php",
 				}).done(function() {
 					location.reload(true);
 			});
@@ -216,7 +216,7 @@ jQuery(document).ready(function ($) {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
-				url: "/wp-content/themes/todo/actions/delete.php",
+				url: "/wp-content/plugins/todo-list/actions/delete.php",
 				data:formData,
 				cache:false,
 				contentType: false,
