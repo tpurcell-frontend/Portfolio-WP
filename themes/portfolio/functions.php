@@ -51,11 +51,20 @@ if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
 	 * @return void
 	 */
 	function twentytwentyfive_enqueue_styles() {
+		// Enqueue the main style.css
 		wp_enqueue_style(
 			'twentytwentyfive-style',
 			get_parent_theme_file_uri( 'style.css' ),
 			array(),
 			wp_get_theme()->get( 'Version' )
+		);
+
+		// Enqueue Google Fonts
+		wp_enqueue_style(
+			'twentytwentyfive-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap',
+			array(),
+			null
 		);
 	}
 endif;

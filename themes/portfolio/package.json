@@ -1,8 +1,9 @@
 {
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "sass": "^1.93.3"
   },
   "scripts": {
-    "sass": "sass --watch scss:."
+    "sass": "concurrently \"sass --watch scss:.\" \"sass --watch ../../plugins/todo-list/scss:../../plugins/todo-list/css\""
   }
 }
