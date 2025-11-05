@@ -330,7 +330,7 @@ input[type="checkbox"] {
 
 .option__wrapper {
 
-	.deleteSelect {
+	.deleteItem {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
@@ -455,14 +455,14 @@ input[type="checkbox"] {
 			text-align: center;
 		}
 
-		.deleteSelect {
+		.deleteItem {
 			width: 15px;
 			height: 15px;  
 			padding: 3px;
 			margin-right: 0;
 		}
 
-		.deleteSelect {
+		.deleteItem {
 			width: 24px;
 			height: 24px;
 		}

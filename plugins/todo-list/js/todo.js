@@ -15,58 +15,68 @@ jQuery(document).ready(function ($) {
 	jQuery('#form').on('submit', function(e){
 		e.preventDefault();
 	});
+	
+	var ajaxUrl = '/wp-admin/admin-ajax.php';
 
 	//Add Task
 	jQuery('.add').on('click', function(e) {
 		e.preventDefault();
+
 		var formData = new FormData(document.getElementById('form'));
+		formData.append('action', 'add_task');
+
 		jQuery.ajax({
 			type:'POST',
-			url: "/wp-content/plugins/todo-list/actions/storage.php",
+			url: ajaxUrl,
 			data:formData,
 			cache:false,
 			contentType: false,
 			processData: false,
-			}).done(function() {
-				location.reload(true);
+		}).done(function(response) {
+			location.reload(true);
 		});
 	});
 
 	jQuery('.add').on('keypress', function (e) {
-		if (e.which == 13) {
+		if (e.key === 'Enter') {
 			var formData = new FormData(document.getElementById('form'));
+			formData.append('action', 'add_task');
+			var ajaxUrl = '/wp-admin/admin-ajax.php';
+
 			jQuery.ajax({
 				type:'POST',
-				url: "/wp-content/plugins/todo-list/actions/storage.php",
+				url: ajaxUrl,
 				data:formData,
 				cache:false,
 				contentType: false,
 				processData: false,
-				}).done(function() {
-					location.reload(true);
+			}).done(function(response) {
+				console.log(response);
+				location.reload(true);
 			});
 		}
 	});
 
-	jQuery('.addEnter').on('keypress', function (e) {
-		if (e.which == 13) {
-			var formData = new FormData(document.getElementById('form'));
-			jQuery.ajax({
-				type:'POST',
-				url: "/wp-content/plugins/todo-list/actions/storage.php",
-				data:formData,
-				cache:false,
-				contentType: false,
-				processData: false,
-				}).done(function() {
-					location.reload(true);
-			});
-		}
-	});
+	// jQuery('.addEnter').on('keypress', function (e) {
+	// 	if (e.key === 'Enter') {
+	// 		var formData = new FormData(document.getElementById('form'));
+	// 		jQuery.ajax({
+	// 			type:'POST',
+	// 			url: "/wp-content/plugins/todo-list/actions/storage.php",
+	// 			data:formData,
+	// 			cache:false,
+	// 			contentType: false,
+	// 			processData: false,
+	// 			}).done(function() {
+	// 				location.reload(true);
+	// 		});
+	// 	}
+	// });
 
-	// Update task
+	// Update tasks
 	jQuery('#update').on('click', function(e) {
 		e.preventDefault();
+
 		var formData = new FormData(document.getElementById('form'));
 		jQuery.ajax({
 			method: "POST",
@@ -80,53 +90,21 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
-	jQuery('#update').on('keypress', function (e) {
-		if (e.which == 13) {
-			var formData = new FormData(document.getElementById('form'));
-			jQuery.ajax({
-				method: "POST",
-				url: "/wp-content/plugins/todo-list/actions/update.php",
-				data:formData,
-				cache:false,
-				contentType: false,
-				processData: false,
-				}).done(function() {
-					location.reload(true);
-			});
-		}
-	});
-
-	//Complete task
-	jQuery('.completeUpdate').on('click', function(e) {
-		e.preventDefault();
-		var formData = new FormData(document.getElementById('form'));
-		jQuery.ajax({
-			method: "POST",
-			url: "/wp-content/plugins/todo-list/actions/complete.php",
-			data:formData,
-			cache:false,
-			contentType: false,
-			processData: false,
-			}).done(function() {
-				location.reload(true);
-		});
-	});
-
-	jQuery('.completeUpdate').on('keypress', function (e) {
-		if (e.which == 13) {
-			var formData = new FormData(document.getElementById('form'));
-			jQuery.ajax({
-				method: "POST",
-				url: "/wp-content/plugins/todo-list/actions/complete.php",
-				data:formData,
-				cache:false,
-				contentType: false,
-				processData: false,
-				}).done(function() {
-					location.reload(true);
-			});
-		}
-	});
+	// jQuery('#update').on('keypress', function (e) {
+	// 	if (e.key === 'Enter') {
+	// 		var formData = new FormData(document.getElementById('form'));
+	// 		jQuery.ajax({
+	// 			method: "POST",
+	// 			url: "/wp-content/plugins/todo-list/actions/update.php",
+	// 			data:formData,
+	// 			cache:false,
+	// 			contentType: false,
+	// 			processData: false,
+	// 			}).done(function() {
+	// 				location.reload(true);
+	// 		});
+	// 	}
+	// });
 
 	//Uncheck all tasks
 	jQuery('#clear').on('click', function(e) {
@@ -145,7 +123,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	jQuery('#clear').on('keypress', function (e) {
-		if (e.which == 13) {
+		if (e.key === 'Enter') {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
@@ -161,38 +139,54 @@ jQuery(document).ready(function ($) {
 	});
 
 	//Delete selected task
-	jQuery('.deleteSelect').on('click', function(e) {
-		var formData = new FormData(document.getElementById('form'));
+	jQuery('.deleteItem').on('click', function(e) {
 		e.preventDefault();
-		if(confirm("Warning! This will delete the selected task!\nAre you sure?")) {
+
+		var taskId = jQuery(this).data('id');
+
+		if(!taskId) {
+            alert('Task ID missing!');
+            return;
+        }
+		
+		if(confirm('Warning! This will delete the selected task!\nAre you sure?')) {
 			jQuery.ajax({
-				method: "POST",
-				url: "/wp-content/plugins/todo-list/actions/deleteSelect.php",
-				data:formData,
-				cache:false,
-				contentType: false,
-				processData: false,
-				}).done(function() {
+				url: ajaxUrl,
+				method: 'POST',
+				data: {
+					action: 'delete_task',
+					id: taskId
+				},
+				dataType: 'json'
+			}).done(function(response) {
+				if (response.success) {
 					location.reload(true);
+				} else {
+					alert('Error: ' + response.data);
+				}
 			});
 		}
 	});
 
-	jQuery('.deleteSelect').on('keypress', function (e) {
-		if (e.which == 13) {
+	jQuery('.deleteItem').on('keypress', function (e) {
+		if (e.key === 'Enter') {
 			e.preventDefault();
-			jQuery('.deleteSelect').attr('checked', 'true');
-			var formData = new FormData(document.getElementById('form'));
-			if(confirm("Warning! This will delete the selected task!\nAre you sure?")) {
+			
+			if(confirm('Warning! This will delete the selected task!\nAre you sure?')) {
 				jQuery.ajax({
-					method: "POST",
-					url: "/wp-content/plugins/todo-list/actions/deleteSelect.php",
-					data:formData,
-					cache:false,
-					contentType: false,
-					processData: false,
-					}).done(function() {
+					url: ajaxUrl,
+					method: 'POST',
+					data: {
+						action: 'delete_task',
+						id: taskId
+					},
+					dataType: 'json'
+				}).done(function(response) {
+					if (response.success) {
 						location.reload(true);
+					} else {
+						alert('Error: ' + response.data);
+					}
 				});
 			}
 		}
@@ -212,7 +206,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	jQuery('#delete').on('keypress', function (e) {
-		if (e.which == 13) {
+		if (e.key === 'Enter') {
 			var formData = new FormData(document.getElementById('form'));
 			jQuery.ajax({
 				method: "POST",
@@ -239,7 +233,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	jQuery('#switch').on('keypress', function(e) {
-		if (e.which == 13) {
+		if (e.key === 'Enter') {
 			jQuery(this).find('label').toggleClass('theme');
 			jQuery('.btn').toggleClass('theme');
 			jQuery('#download').toggleClass('theme');
@@ -268,7 +262,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	jQuery('.tick').on('keypress', function(e) {
-		if (e.which == 13) {
+		if (e.key === 'Enter') {
 			if(jQuery(this).hasClass('checked')) {
 				jQuery(this).removeClass('checked');
 				jQuery(this).addClass('unchecked');

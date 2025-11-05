@@ -15,30 +15,6 @@
     // Write the "Task" table in the database when first activating the plugin
     register_activation_hook(__FILE__, 'todo_list_create_table');
 
-    function todo_list_create_table() {
-        global $wpdb;
-
-        // Define table name (with WordPress prefix for safety)
-        $table_name = $wpdb->prefix . 'tasks';
-
-        // Character set / collation (matches WP settings)
-        $charset_collate = $wpdb->get_charset_collate();
-
-        // SQL to create the table if it doesn’t exist
-        $sql = "CREATE TABLE $table_name (
-            ID mediumint(9) NOT NULL AUTO_INCREMENT,
-            item varchar(255) NOT NULL,
-            status tinyint(1) NOT NULL DEFAULT 0,
-            PRIMARY KEY  (ID)
-        ) $charset_collate;";
-
-        // Include the upgrade library for dbDelta()
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-
-        // Run the SQL safely (creates or updates structure)
-        dbDelta($sql);
-    }
-
     /**
      * Enqueue plugin scripts and styles
      */
@@ -66,6 +42,37 @@
     add_action('wp_enqueue_scripts', 'todo_list_enqueue_assets');
 
     // Database Call
+    function todo_list_create_table() {
+        global $wpdb;
+
+        // Define table name (with WordPress prefix for safety)
+        $table_name = $wpdb->prefix . 'tasks';
+
+        // Character set / collation (matches WP settings)
+        $charset_collate = $wpdb->get_charset_collate();
+
+        // SQL to create the table if it doesn’t exist
+        $sql = "CREATE TABLE $table_name (
+            ID mediumint(9) NOT NULL AUTO_INCREMENT,
+            item varchar(255) NOT NULL,
+            status tinyint(1) NOT NULL DEFAULT 0,
+            PRIMARY KEY  (ID)
+        ) $charset_collate;";
+
+        // Include the upgrade library for dbDelta()
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+        // Run the SQL safely (creates or updates structure)
+        dbDelta($sql);
+    }
+
+    // Add a task function
+    require plugin_dir_path(__FILE__) . 'actions/storage.php';
+    // Delete a task function
+    require plugin_dir_path(__FILE__) . 'actions/deleteItem.php';
+    // Update the status function
+    require plugin_dir_path(__FILE__) . 'actions/update.php';
+
     function todo_list_display() {
         ob_start(); // Capture output so it doesn’t echo immediately
     
@@ -169,8 +176,8 @@
                                 $item = $row['item']; 
                                 $status = $row['status']; ?>
         
-                                <div class="checkbox__wrapper">
-                                    <div Class="task__checkbox">
+                                <div class="checkbox__wrapper" data-id="<?php echo $id ?>">
+                                    <div class="task__checkbox">
                                         <?php if($status == '1') { ?>
                                             <input id="complete" class="checked tick" name="complete[]" type="checkbox" value="1" checked>												
                                         <?php } else { ?>
@@ -180,18 +187,18 @@
                                         <label class="sr" for="complete"><?php echo $item ?></label>
                                     </div>
                                     <div class="task__name">
-                                    <?php if($status == '1') { ?>
-                                        <input class="update crossed" name="update[]" placeholder="<?php echo $item ?>" value="<?php echo $item ?>" type="text">
-                                    <?php } else { ?>
-                                        <input class="update" name="update[]" placeholder="<?php echo $item ?>" value="<?php echo $item ?>" type="text">
-                                    <?php } ?>
-                                        <input type="hidden" name="updateID[]" value="<?php echo $id ?>">
-                                        <label class="sr" for="update"><?php echo $item ?></label>
+                                        <?php if($status == '1') { ?>
+                                            <input data-id="<?php echo $id ?>" class="update crossed" name="update" placeholder="<?php echo $item ?>" value="<?php echo $item ?>" type="text">
+                                        <?php } else { ?>
+                                            <input data-id="<?php echo $id ?>" class="update" name="update" placeholder="<?php echo $item ?>" value="<?php echo $item ?>" type="text">
+                                        <?php } ?>
+                                            <input type="hidden" name="updateID" value="<?php echo $id ?>">
+                                            <label class="sr" for="update"><?php echo $item ?></label>
                                     </div>
                                     <div class="option__wrapper">
                                         <div>
-                                            <input value="<?php echo $id ?>" class="deleteSelect" name="deleteSelect[]" type="radio" tabindex="0">
-                                            <label class="sr" for="deleteSelect">Delete task number <?php echo $id ?></label>
+                                            <input value="<?php echo $id ?>" data-id="<?php echo $id ?>" class="deleteItem" name="deleteItem" type="radio" tabindex="0">
+                                            <label class="sr" for="deleteItem">Delete task number <?php echo $id ?></label>
                                         </div>
                                     </div>
                                 </div>
@@ -224,12 +231,11 @@
 
                         if ($tasksTotal == 0) { ?>
                             <div class="flex__wrapper controls">
-                            
                                 <div class="btn__wrapper">
                                     <a style="margin-bottom: 0;" tabindex="0" id="add" type="submit" value="Add task" class="btn slideFromLeft" aria-label="Add task">Add task</a>
                                 </div>
                                 <div class="marker">
-                                    <p id="tasksRemaining2"></p>
+                                    <p id="tasksRemaining"></p>
                                 </div>
                             </div>
                         <?php // Show all buttons if there is at least one task

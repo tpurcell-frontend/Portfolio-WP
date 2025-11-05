@@ -281,7 +281,7 @@ input[type=checkbox].theme.checked:checked {
   text-decoration: line-through;
 }
 
-.option__wrapper .deleteSelect {
+.option__wrapper .deleteItem {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -301,7 +301,7 @@ input[type=checkbox].theme.checked:checked {
   transition: 0.25s ease-in-out;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.option__wrapper .deleteSelect:hover, .option__wrapper .deleteSelect:focus, .option__wrapper .deleteSelect:active {
+.option__wrapper .deleteItem:hover, .option__wrapper .deleteItem:focus, .option__wrapper .deleteItem:active {
   transform: scale(1.35);
   border: 2px solid #B4B4B4;
   color: #c22032;
@@ -378,13 +378,13 @@ input[type=checkbox].theme.checked:checked {
     display: block;
     text-align: center;
   }
-  .option__wrapper .deleteSelect {
+  .option__wrapper .deleteItem {
     width: 15px;
     height: 15px;
     padding: 3px;
     margin-right: 0;
   }
-  .option__wrapper .deleteSelect {
+  .option__wrapper .deleteItem {
     width: 24px;
     height: 24px;
   }
