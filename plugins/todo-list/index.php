@@ -71,7 +71,7 @@
     // Delete a task function
     require plugin_dir_path(__FILE__) . 'actions/deleteItem.php';
     // Update the status function
-    require plugin_dir_path(__FILE__) . 'actions/update.php';
+    // require plugin_dir_path(__FILE__) . 'actions/update.php';
 
     function todo_list_display() {
         ob_start(); // Capture output so it doesn’t echo immediately
