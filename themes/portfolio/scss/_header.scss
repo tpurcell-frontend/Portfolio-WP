@@ -1,0 +1,27 @@
+@use "./variables.scss" as *;
+
+header {
+    padding: 1em 0;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /* offset-x, offset-y, blur, color */
+
+    @media (min-width: 768px) {
+        padding: 1.5em 0;
+    }
+
+    @media (min-width: 1201px) {
+        padding: 2em 0;
+    }
+    
+    .wp-block-group {
+
+        @media (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .wp-block-navigation-link {
+        color: $color__white;
+    }
+}

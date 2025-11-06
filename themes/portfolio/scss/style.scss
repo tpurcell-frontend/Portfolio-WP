@@ -1,24 +1,9 @@
 @use "./variables.scss" as *;
 
-/* Blocks
--------------------------------*/
-.wp-block-site-title a {
-	color: $color__white;
-	font-family: $serif;
-	font-size: 24px;
+@use "./header.scss" as *;
+@use "./intro-section.scss" as *;
 
-	@media (min-width: 769px) {
-		font-size: 32px;
-	}
-
-	@media (min-width: 1201px) {
-		font-size: 48px;
-	}
-}
-
-.wp-block-navigation-item__content {
-	font-weight: 700;
-}
+@use "./blocks.scss" as *;
 
 /* Typography
 -------------------------------*/
@@ -28,6 +13,7 @@ body {
 	background: $gradient1;
 	background-image: url('/wp-content/uploads/bg.png');
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-position-x: center;
 	font-size: 14px;
 }

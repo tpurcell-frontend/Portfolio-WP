@@ -1,0 +1,19 @@
+@use "./variables.scss" as *;
+
+.wp-block-site-title a {
+	color: $color__white;
+	font-family: $serif;
+	font-size: 24px;
+
+	@media (min-width: 769px) {
+		font-size: 32px;
+	}
+
+	@media (min-width: 1201px) {
+		font-size: 48px;
+	}
+}
+
+.wp-block-navigation-item__content {
+	font-weight: 700;
+}

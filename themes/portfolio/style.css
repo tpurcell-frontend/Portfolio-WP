@@ -1,7 +1,45 @@
 /* Variables
 -------------------------------*/
-/* Blocks
--------------------------------*/
+header {
+  padding: 1em 0;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /* offset-x, offset-y, blur, color */
+}
+@media (min-width: 768px) {
+  header {
+    padding: 1.5em 0;
+  }
+}
+@media (min-width: 1201px) {
+  header {
+    padding: 2em 0;
+  }
+}
+@media (min-width: 768px) {
+  header .wp-block-group {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+header .wp-block-navigation-link {
+  color: #fff;
+}
+
+.intro-section {
+  padding: 1em 0;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .intro-section {
+    padding: 1.5em 0;
+  }
+}
+@media (min-width: 1201px) {
+  .intro-section {
+    padding: 2em 0;
+  }
+}
+
 .wp-block-site-title a {
   color: #fff;
   font-family: "Merriweather", serif;
@@ -29,6 +67,7 @@ body {
   background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
   background-image: url("/wp-content/uploads/bg.png");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position-x: center;
   font-size: 14px;
 }

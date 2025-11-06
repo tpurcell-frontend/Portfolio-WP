@@ -6,7 +6,7 @@
     /*
     Plugin Name: ToDo List
     Plugin URI: 
-    Description: This is a To-Do list. It connects to your SQL database and saves your data.
+    Description: This is a To-Do list. It connects to your WP database to save your data. Paste the shortcode '[todo_list]' in your editor to display it.
     Author: Travis Purcell
     Version: 1
     Author URI: ''
@@ -14,6 +14,32 @@
 
     // Write the "Task" table in the database when first activating the plugin
     register_activation_hook(__FILE__, 'todo_list_create_table');
+
+    /**
+     * Register the To-Do list pattern
+     */
+    function todo_list_register_patterns() {
+        if ( function_exists( 'register_block_pattern' ) ) {
+            register_block_pattern_category(
+                'to-do',
+                array(
+                    'label'       => _x( 'To-Do List', 'Block pattern category' ),
+                    'description' => __( 'To-Do list.' ),
+                )
+            );
+
+            register_block_pattern(
+                'todo-list/todo-list',
+                array(
+                    'title'       => __( 'To-Do List', 'todo-list' ),
+                    'description' => __( 'A To-Do list.', 'todo-list' ),
+                    'categories'  => array( 'to-do' ),
+                    'content'     => file_get_contents( plugin_dir_path( __FILE__ ) . 'patterns/todo-list.php' ),
+                )
+            );
+        }
+    }
+    add_action( 'init', 'todo_list_register_patterns' );
 
     /**
      * Enqueue plugin scripts and styles
