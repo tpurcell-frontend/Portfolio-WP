@@ -1,0 +1,607 @@
+/* Variables
+-------------------------------*/
+$color__white: #fff;
+
+$color__blue: #29ABE2;
+$color__red: #c22032;
+$color__lgray: #BDBDBD;
+$color__lgray2: #B4B4B4;
+$color__gray: #333333;
+
+$color__theme: #dda255;
+$color__bg: #E5E5E5;
+$color__font-main: #000;
+
+$gradient1: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+$gradient2: linear-gradient(90deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+
+$serif: "Merriweather", serif;
+$sans-serif: "Montserrat", sans-serif;
+
+/* General
+-------------------------------*/
+.todo-list-section {
+
+	form {
+		box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
+		background-color: $color__white;
+		border-radius: 20px;
+		margin: 0;
+		padding: 20px;
+	}
+}
+
+// /* Tooltip
+// -------------------------------*/
+
+// .tooltip {
+// position: relative;
+// display: inline-block;
+// }
+  
+// .tooltip .tooltiptext {
+// bottom: 2.5em;
+// right: -29%;
+// visibility: hidden;
+// width: 120px;
+// background-color: $color__blue;
+// color: #fff;
+// text-align: center;
+// border-radius: 6px;
+// padding: 5px 0;
+// box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
+
+// /* Position the tooltip */
+// position: absolute;
+// z-index: 1;
+// }
+  
+// .tooltip:hover .tooltiptext, .tooltip:focus .tooltiptext, .tooltip:active .tooltiptext {
+// visibility: visible;
+// }
+
+// /* Toggle button
+// -------------------------------*/
+
+// .toggle__wrapper {
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	text-align: right;
+// }
+
+// .toggle {
+// 	box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 20%);
+// 	position : relative ;
+// 	display : inline-block;
+// 	width : 44px;
+// 	height : 20px;
+// 	background-color: $color__theme;
+// 	border-radius: 30px;
+// 	border: 2px solid $color__lgray2;
+// 	cursor: pointer;
+// }
+
+// .toggleLabel {
+// 	font-size: 12px;
+// }
+	   
+// .toggle::after {
+// 	content: '';
+// 	position: absolute;
+// 	width: 18px;
+// 	height: 18px;
+// 	border-radius: 50%;
+// 	background-color: #fff;
+// 	top: 1px;
+// 	left: 1px;
+// 	transition:  all 0.5s;
+// }
+	   
+// .theme.toggle::after {
+// 	left : 24px;
+// }
+	   
+// .theme.toggle {
+// 	background-color: $color__blue;
+// }
+	   
+// .checkbox {
+// 	display : none;
+// }
+
+// @media (min-width: 768px) {
+
+// 	.toggle__wrapper {
+// 		justify-content: flex-end;
+// 	}
+
+// 	.toggle {
+// 		width: 50px;
+// 		height : 27px;
+// 	}
+
+// 	.toggle:after {
+// 		width: 25px;
+// 		height: 25px;
+// 	}
+// }
+
+// /* Scrollbar
+// -------------------------------*/
+
+// ::-webkit-scrollbar {
+// 	width: 16px;
+// 	border-radius: 16px;
+// }	
+  
+// ::-webkit-scrollbar-track {
+// 	background: #eee;
+// 	box-shadow: inset 0 0 5px #fff; 
+// 	border-radius: 16px;
+// }
+
+// ::-webkit-scrollbar-thumb {
+// 	background: $color__lgray;
+// 	border-radius: 16px;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+// 	background: $color__blue;
+// }
+
+// .slidecontainer {
+//   width: 100%; 
+// }
+
+// .slider {
+//   -webkit-appearance: none; 
+//   appearance: none;
+//   width: 100%;
+//   height: 25px;
+//   background: #d3d3d3; 
+//   outline: none; 
+//   opacity: 0.7; 
+//   -webkit-transition: .2s;
+//   transition: opacity .2s;
+// }
+
+// .slider:hover {
+//   opacity: 1; 
+// }
+
+// .slider::-webkit-slider-thumb {
+//   -webkit-appearance: none; 
+//   appearance: none;
+//   width: 25px;
+//   height: 25px;
+//   background: #04AA6D; 
+//   cursor: pointer;
+// }
+
+// .slider::-moz-range-thumb {
+//   width: 25px;
+//   height: 25px;
+//   background: #04AA6D; 
+//   cursor: pointer;
+// }
+
+// /* Content
+// -------------------------------*/
+
+// .outer__wrapper {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	margin: 0;
+//     padding: 0 0 50px;
+//     max-width: 100%;
+// }
+
+// .form__wrapper { 
+// 	box-shadow: 0px 3px 5px 5px rgb(0 0 0 / 20%);
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+// 	padding: 24px;
+//     margin: 0 auto;
+//     background: #FFFFFF;
+//     border-radius: 16px;
+//     flex: none;
+//     order: 0;
+// 	flex-grow: 0;
+// 	max-width: 80%;
+// 	max-height: 500px;
+// 	overflow-x: hidden;
+// 	overflow-y: auto;
+// 	-webkit-overflow-scrolling: touch
+// }
+
+// #form {
+// 	width: 100%;
+// }
+
+// //Form Inputs
+
+// input[type="text"] {
+// 	border: none;
+// 	width: 90%;
+// }
+
+// input[type="checkbox"] {
+// 	width: 28px;
+// 	height: 28px;
+// 	cursor: pointer;
+// 	-moz-appearance:none;
+// 	-webkit-appearance:none;
+// 	-o-appearance:none;
+// 	border: 3px solid #B4B4B4;
+// 	border-radius: 10px;
+// 	margin-left: 0;
+// 	margin-right: 1em;
+// 	box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
+
+// 	&.checked {
+// 		border: none;
+// 		background-color: $color__blue;
+// 		background-image: url('/wp-content/uploads/check.svg');
+// 		background-size: cover;
+// 		color: $color__blue;
+// 	}
+
+// 	&.theme.checked {
+
+// 		&:checked {
+// 			background-image: url('/wp-content/uploads/check-orange.svg');
+// 		}
+// 	}
+// }
+
+// //End Form Inputs
+
+// .download__wrapper {
+
+// 	a {
+// 		color: $color__blue;
+// 		font-weight: bold;
+// 		text-decoration: none;
+
+// 		&:hover, &:active, &:focus {
+// 			text-decoration: underline;
+// 		}
+
+// 		&.theme {
+// 			color: $color__theme;
+// 		}
+// 	}
+// }
+
+// .warning {
+// 	margin-top: .5em;
+// 	font-size: 12px;
+// 	font-size: .75em;
+// }
+
+// #tasksRemaining {
+// 	font-weight: 500;
+// 	margin: 1.5em 0 1em;
+// 	text-decoration: underline;
+// 	font-style: italic;
+// }
+
+// #task {
+// 	box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 20%);
+// 	background-image: url('/wp-content/uploads/arrow.png');
+// 	background-size: auto;
+// 	background-repeat: no-repeat;
+// 	background-position-x: 98%;
+// 	background-position-y: center;
+// 	width: 90%;
+// 	height: 30px;
+// 	padding-left: 16px;
+// 	margin: 0;
+// 	border: 3px solid $color__lgray2;
+// 	border-radius: 12px;
+	
+// 	&::placeholder {
+// 		font-style: normal;
+// 		font-weight: 400;
+// 		font-size: 14px;
+// 		line-height: 21px;
+// 		color: $color__gray;
+// 	}
+// }
+
+// .checkbox__wrapper {
+// 	margin-bottom: 1em;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	position: relative;
+
+// 	div {
+// 		display: flex;
+// 		align-items: center;
+// 	}
+
+// 	.task__checkbox {
+// 		flex-basis: 10%;
+// 	}
+
+// 	.task__name {
+// 		flex-basis: 400%;
+
+// 		input {
+// 			font-size: 16px;
+// 			font-size: 1em;
+// 		}
+
+// 		input.crossed {
+// 			text-decoration: line-through;
+// 		}
+// 	}
+// }
+
+// .option__wrapper {
+
+// 	.deleteItem {
+// 		-webkit-appearance: none;
+// 		-moz-appearance: none;
+// 		appearance: none;
+// 		cursor: pointer;
+// 		border: 2px solid #B4B4B4;
+// 		color: $color__blue;
+// 		display: inline-block;
+// 		width: 20px;
+// 		height: 20px;  
+// 		padding: 3px;
+// 		border-radius: 50%;
+// 		margin-right: 0;
+// 		background-color: $color__red;
+// 		background-size: 8px;
+// 		background-repeat: no-repeat;
+// 		background-position: center;
+// 		transition: .25s ease-in-out;
+// 		box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 20%);
+
+
+// 		&:hover, &:focus, &:active {
+// 			transform: scale(1.35);
+// 			border: 2px solid #B4B4B4;
+// 			color: $color__red;
+// 		}
+// 	}
+// }
+
+// .controls {
+// 	margin: 4em 0 0;
+
+// 	&.top {
+// 		margin: 2em 0;
+// 	}
+// }
+
+// .btn__wrapper {
+// 	display: flex;
+// 	flex-wrap: wrap;
+//     align-items: flex-start;
+//     gap: 10px;
+	
+// 	.btn {
+//         margin: 0;
+// 	}
+// }
+
+// .bottom.flex__wrapper {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// }
+
+
+// @media (min-width: 768px) {
+
+// 	.outer__wrapper {
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+//         padding: 0 0 75px;
+// 	}
+
+// 	.form__wrapper {
+// 		width: 650px;
+// 		padding: 32px;
+// 		padding-bottom: 48px;
+// 		max-height: 800px;
+// 	}
+
+// 	//Form Inputs
+
+// 	input[type="checkbox"] {
+// 		width: 32px;
+// 		height: 32px;
+// 	}
+
+// 	//End Form Inputs
+
+
+// 	#form {
+// 		width: 535px;
+// 	}
+
+// 	.checkbox__wrapper {
+// 		margin-bottom: 24px;
+
+// 		.task__name {
+	
+// 			input {
+// 				font-size: 24px;
+// 				font-size: 1.5em;
+// 			}
+// 		}
+// 	}
+
+// 	.controls {
+		
+// 		&.top {
+// 			margin: 2em 0 3em;
+// 		}
+// 	}
+
+// 	#task {
+// 		height: 51px;
+// 		width: 96.5%;
+// 		font-size: 18px;
+
+// 		&::placeholder {
+// 			font-size: 18px;
+// 		}
+// 	}
+
+// 	.option__wrapper {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		max-width: 150px;
+// 		width: 150px;
+
+// 		div {
+// 			display: block;
+// 			text-align: center;
+// 		}
+
+// 		.deleteItem {
+// 			width: 15px;
+// 			height: 15px;  
+// 			padding: 3px;
+// 			margin-right: 0;
+// 		}
+
+// 		.deleteItem {
+// 			width: 24px;
+// 			height: 24px;
+// 		}
+
+// 		.task__name {
+	
+// 			input {
+// 				font-size: 24px;
+// 				font-size: 1.5em;
+// 			}		
+// 		}
+// 	}
+
+// 	.btn__wrapper {
+// 		margin-bottom: 2em;
+// 		max-width: 100%;
+
+// 		.btn {
+
+// 			& + .btn {
+// 				margin-left: 1.5em;
+// 			}
+
+// 			&:nth-of-type(3), &:nth-of-type(4) {
+// 				margin-bottom: 0;
+// 			}
+// 		}
+// 	}
+
+// 	.flex__wrapper {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		align-items: flex-end;
+// 	}
+
+// 	#tasksRemaining {
+// 		margin: 0;
+// 	}
+
+// 	.download__wrapper {
+
+// 	}
+// }
+
+// @media (min-width: 992px) {
+
+// 	#form {
+// 		width: 675px;
+// 	}
+
+// 	.checkbox__wrapper {
+
+// 		.task__name {
+	
+// 			input {
+// 				font-size: 28px;
+// 				font-size: 1.75em;
+// 			}
+// 		}
+// 	}
+
+// 	.form__wrapper {
+// 		width: 790px;
+// 	}
+
+// 	//Form Inputs
+
+// 	input[type="checkbox"] {
+// 		width: 28px;
+// 		height: 28px;
+// 	}
+
+// 	//End Form Inputs
+// }
+
+// @media (min-width: 1200px) {
+
+//     .outer__wrapper {
+//         padding: 0 0 100px;
+//     }
+	
+// 	.form__wrapper {
+// 		width: 790px;
+// 		padding: 56px;
+// 	}
+
+// 	#form {
+// 		width: 709px;
+// 	}
+
+// 	.checkbox__wrapper {
+// 		margin-bottom: 32px;
+
+// 		&:last-of-type {
+// 			margin-bottom: 0;
+// 		}
+
+// 		.task__name {
+	
+// 			input {
+// 				font-size: 32px;
+// 				font-size: 2em;
+// 			}		
+// 		}
+// 	}
+
+// 	.btn__wrapper {
+
+// 		.btn {
+// 			padding: .5em 1.5em;
+// 			font-size: 18px;
+// 			font-size: 1.125em;
+// 		}
+// 	}
+
+// 	//Form Inputs
+
+// 	input[type="checkbox"] {
+// 		width: 32px;
+// 		height: 32px;
+// 	}
+
+// 	//End Form Inputs
+	
+// 	#task {
+// 		width: 685px;
+// 		height: 51px;
+// 	}
+// }

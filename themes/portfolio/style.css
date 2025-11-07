@@ -127,26 +127,6 @@ p {
   opacity: 0;
 }
 
-.btn.slideFromLeft:hover::after {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all 0.2s;
-  opacity: 1;
-}
-
-.btn.slideFromLeft::after {
-  top: 0;
-  bottom: 0;
-  right: 75%;
-}
-
-.sr {
-  position: absolute;
-  visibility: hidden !important;
-}
-
 @media (min-width: 375px) and (max-width: 767px) {
   .btn, input[value=submit] {
     margin-left: 1em;

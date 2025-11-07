@@ -1,17 +1,3 @@
-<?php
-/**
- * Title: Intro Section
- * Slug: intro-section
- * Categories: intro-section
- * Description: An intro section leading into the page's content.
- *
- * @package WordPress
- * @subpackage Portfolio
- * @since Portfolio 1.0
- */
-
-?>
-
 <!-- wp:group {"className":"intro-section"} -->
 <div class="wp-block-group intro-section">
     <!-- wp:group {"className":"container"} -->
@@ -21,7 +7,7 @@
             <!-- wp:group {"className":"col-12"} -->
             <div class="wp-block-group col-12">
                 <!-- wp:heading {"level":2} -->
-                <h2>ToDo List</h2>
+                <h2>ToDo List Intro Section</h2>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph -->
                 <p>Welcome to my portfolio!</p>
