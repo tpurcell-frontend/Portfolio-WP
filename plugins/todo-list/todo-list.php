@@ -1,16 +1,17 @@
 <?php
 /**
  * Plugin Name: ToDo List
- * Description: A Gutenberg-ready front-end React To-Do list.
+ * Description: A React-based Gutenberg block that renders a dynamic To-Do list with stored values.
  * Version: 1.0
  * Author: Travis Purcell
  */
 
+// Only allow php execution in WordPress.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Enqueue block assets for editor
 function todo_list_register_block() {
-    // Register block script
+    // Register the todo-block script
     wp_register_script(
         'todo-list-block',
         plugin_dir_url(__FILE__) . 'blocks/todo-block/index.js',
@@ -19,7 +20,7 @@ function todo_list_register_block() {
         true
     );
 
-    // Optional editor styles
+    // Enqueue the Block Editor styles
     wp_register_style(
         'todo-list-editor',
         plugin_dir_url(__FILE__) . 'blocks/todo-block/editor.css',
@@ -27,7 +28,7 @@ function todo_list_register_block() {
         filemtime(plugin_dir_path(__FILE__) . 'blocks/todo-block/editor.css')
     );
 
-    // Front-end styles
+    // Enqueue the Todo list styles.
     wp_register_style(
         'todo-list-style',
         plugin_dir_url(__FILE__) . 'css/todo.css',
@@ -35,6 +36,7 @@ function todo_list_register_block() {
         filemtime(plugin_dir_path(__FILE__) . 'css/todo.css')
     );
 
+    // Register the Todo List block, return the React root id "todo-list-root".
     register_block_type('todo-list/todo', [
         'editor_script' => 'todo-list-block',
         'editor_style'  => 'todo-list-editor',
@@ -46,13 +48,14 @@ function todo_list_register_block() {
 }
 add_action('init', 'todo_list_register_block');
 
-function todo_list_frontend_script() {
+// Hook into the wp_enqueue_scripts hook to render the React jsx output compiled in build/index.js
+function todo_react_init_script() {
     wp_enqueue_script(
-        'todo-list-frontend',
-        plugin_dir_url(__FILE__) . 'js/index.js',
+        'todo-list',
+        plugins_url('build/index.js', __FILE__),
         ['wp-element','wp-components'],
-        filemtime(plugin_dir_path(__FILE__) . 'js/index.js'),
+        filemtime(plugin_dir_path(__FILE__) . 'build/index.js'),
         true
     );
 }
-add_action('wp_enqueue_scripts', 'todo_list_frontend_script');
+add_action('wp_enqueue_scripts', 'todo_react_init_script');

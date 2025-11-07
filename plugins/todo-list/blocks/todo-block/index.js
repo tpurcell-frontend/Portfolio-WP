@@ -6,5 +6,5 @@ registerBlockType('todo-list/todo', {
     icon: 'list-view',
     category: 'widgets',
     edit: () => el('p', null, 'To-Do List (renders on front-end)'),
-    save: () => null // Front-end will render React
+    save: () => null // Renders React
 });
