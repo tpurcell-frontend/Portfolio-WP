@@ -6,6 +6,10 @@
     margin: 50px 0 0;
     padding: 50px 0;
 
+    p {
+        line-height: 1.75;
+    }
+
     @media (min-width: 768px) {
         margin: 60px 0 0;
         padding: 60px 0;
