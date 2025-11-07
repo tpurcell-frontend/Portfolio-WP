@@ -1,0 +1,42 @@
+@use "./variables.scss" as *;
+
+.summary-section {
+    background: $color__black;
+    color: $color__white;
+    margin: 50px 0 0;
+    padding: 50px 0;
+
+    @media (min-width: 768px) {
+        margin: 60px 0 0;
+        padding: 60px 0;
+    }
+
+    @media (min-width: 1201px) {
+        margin: 80px 0 0;
+        padding: 80px 0;
+
+    }
+    
+    .wp-block-group + .wp-block-group {
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .summary-section {
+
+        .wp-block-group + .wp-block-group {
+            margin-top: 50px;
+        }
+    }
+}
+
+@media (min-width: 1201px) {
+    
+    .summary-section {
+
+        .wp-block-group + .wp-block-group {
+        }
+    }
+}

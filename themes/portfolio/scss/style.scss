@@ -1,14 +1,20 @@
 @use "./variables.scss" as *;
 
 @use "./header.scss" as *;
-@use "./intro-section.scss" as *;
 
 @use "./blocks.scss" as *;
 
 /* Typography
 -------------------------------*/
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
+	height: 100%;
+    overflow: auto;
 	font-family: $sans-serif;
 	background: $gradient1;
 	background-image: url('/wp-content/uploads/bg.png');

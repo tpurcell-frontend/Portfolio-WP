@@ -9,9 +9,51 @@
 // Only allow php execution in WordPress.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Enqueue block assets for editor
+/**
+ * Register custom intro patterns.
+ */
+function to_do_register_patterns() {
+    if ( function_exists( 'register_block_pattern' ) ) {
+
+        // Register the category.
+        register_block_pattern_category(
+            'to-do',
+            array(
+                'label'       => _x( 'To-Do patterns', 'Block pattern category', 'to-do' ),
+                'description' => __( 'Patterns for the To-Do components.', 'to-do' ),
+            )
+        );
+
+        // Register intro section the pattern.
+        register_block_pattern(
+            'intro-section/intro-section', 
+            array(
+                'title'       => __( 'To-Do Intro Section', 'intro-section' ),
+                'description' => __( 'An intro section for the To-Do block.', 'intro-section' ),
+                'categories'  => array( 'to-do' ),
+                'content'     => file_get_contents( plugin_dir_path(__FILE__) . '/patterns/intro-section.php' ) 
+            ),
+        );
+
+        // Register the summary section pattern.
+        register_block_pattern(
+            'summary-section/summary-section', 
+            array(
+                'title'       => __( 'To-Do Summary Section', 'summary-section' ),
+                'description' => __( 'A summary section for the To-Do block.', 'summary-section' ),
+                'categories'  => array( 'to-do' ),
+                'content'     => file_get_contents( plugin_dir_path(__FILE__) . '/patterns/summary-section.php' ) 
+            ),
+        );
+    }
+}
+add_action( 'init', 'to_do_register_patterns' );
+
+/**
+ * Enqueue block assets for editor.
+ */
 function todo_list_register_block() {
-    // Register the todo-block script
+    // Register the todo-block script.
     wp_register_script(
         'todo-list-block',
         plugin_dir_url(__FILE__) . 'blocks/todo-block/index.js',
@@ -48,7 +90,9 @@ function todo_list_register_block() {
 }
 add_action('init', 'todo_list_register_block');
 
-// Hook into the wp_enqueue_scripts hook to render the React jsx output compiled in build/index.js
+/**
+ * Hook into the wp_enqueue_scripts hook to render the React jsx output compiled in build/index.js.
+ */
 function todo_react_init_script() {
     wp_enqueue_script(
         'todo-list',

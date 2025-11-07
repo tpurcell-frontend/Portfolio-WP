@@ -25,21 +25,6 @@ header .wp-block-navigation-link {
   color: #fff;
 }
 
-.intro-section {
-  padding: 1em 0;
-  color: #fff;
-}
-@media (min-width: 768px) {
-  .intro-section {
-    padding: 1.5em 0;
-  }
-}
-@media (min-width: 1201px) {
-  .intro-section {
-    padding: 2em 0;
-  }
-}
-
 .wp-block-site-title a {
   color: #fff;
   font-family: "Merriweather", serif;
@@ -62,7 +47,14 @@ header .wp-block-navigation-link {
 
 /* Typography
 -------------------------------*/
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  overflow: auto;
   font-family: "Montserrat", sans-serif;
   background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
   background-image: url("/wp-content/uploads/bg.png");

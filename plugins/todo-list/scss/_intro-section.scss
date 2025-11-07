@@ -1,14 +1,15 @@
 @use "./variables.scss" as *;
 
 .intro-section {
-    padding: 1em 0;
+    margin: 50px 0 0;
     color: $color__white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
 
     @media (min-width: 768px) {
-        padding: 1.5em 0;
+        margin: 60px 0 0;
     }
 
     @media (min-width: 1201px) {
-        padding: 2em 0;
+        margin: 80px 0 0;
     }
 }

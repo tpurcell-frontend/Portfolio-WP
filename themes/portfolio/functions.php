@@ -150,35 +150,6 @@ if ( ! function_exists( 'portfolio_pattern_categories' ) ) :
 endif;
 add_action( 'init', 'portfolio_pattern_categories' );
 
-/**
- * Register custom patterns
- */
-function intro_section_register_patterns() {
-    if ( function_exists( 'register_block_pattern' ) ) {
-
-        // Register the category
-        register_block_pattern_category(
-            'intro-section',
-            array(
-                'label'       => _x( 'Intro Section', 'Block pattern category', 'intro-section' ),
-                'description' => __( 'Patterns for the intro section.', 'intro-section' ),
-            )
-        );
-
-        // Register the pattern
-        register_block_pattern(
-            'intro-section/intro-section', 
-            array(
-                'title'       => __( 'Intro Section', 'intro-section' ),
-                'description' => __( 'An intro section for your pages.', 'intro-section' ),
-                'categories'  => array( 'intro-section' ),
-                'content'     => file_get_contents( get_stylesheet_directory() . '/patterns/intro-section.php' ),
-            )
-        );
-    }
-}
-add_action( 'init', 'intro_section_register_patterns' );
-
 // Registers block binding sources.
 if ( ! function_exists( 'portfolio_register_block_bindings' ) ) :
 	/**

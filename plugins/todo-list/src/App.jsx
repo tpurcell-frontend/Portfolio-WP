@@ -5,6 +5,7 @@ import { Button, TextControl } from '@wordpress/components';
 function App() {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
+	
 
 	// Add a new task
 	const addTask = () => {
@@ -43,7 +44,6 @@ function App() {
 							<Button
 								isPrimary
 								onClick={addTask}
-								style={{ marginLeft: '8px' }}
 							>
 								Add Task
 							</Button>
