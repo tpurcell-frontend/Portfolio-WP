@@ -1,5 +1,4 @@
-import { createElement } from '@wordpress/element';
-import { useState, createRoot } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 import { Button, TextControl } from '@wordpress/components';
 
 function App() {
