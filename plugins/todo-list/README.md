@@ -1,5 +1,19 @@
 # React-based To-Do List Gutenberg Block Plugin
 
+## Startup & Commands
+
+### `npm install`
+Installs all the project dependencies needed to build and run the block.
+
+### `npm run start`
+Starts the development server and updates the block automatically when you make changes.
+
+### `npm run build`
+Builds the JavaScript and CSS files for production in the `build/` folder.
+
+### `npm run sass`
+Watches your SCSS files and compiles them to CSS automatically.
+
 ## Overview
 I've aggregated each example into this plugin for reviewing convenience:
 - PHP in the context of WordPress, ideally a plugin: 
