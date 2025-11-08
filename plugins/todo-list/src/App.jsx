@@ -1,12 +1,28 @@
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { Button, TextControl } from '@wordpress/components';
 
 function App() {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
 	
+	// Load tasks from localStorage when the component mounts.
+	useEffect(() => {
+		const saved = localStorage.getItem('todo-list-tasks');
+		if (saved) {
+			try {
+				setTasks(JSON.parse(saved));
+			} catch {
+				console.warn('Could not parse saved tasks.');
+			}
+		}
+	}, []);
 
-	// Add a new task
+	// Save tasks to localStorage whenever they change.
+	useEffect(() => {
+		localStorage.setItem('todo-list-tasks', JSON.stringify(tasks));
+	}, [tasks]);
+
+	// Add a new task.
 	const addTask = () => {
 		const trimmed = newTask.trim();
 		if (!trimmed) return;
@@ -14,14 +30,14 @@ function App() {
 		setNewTask('');
 	};
 
-	// Toggle a task's completion
+	// Toggle a task's completion.
 	const toggleTask = (index) => {
 		const updated = [...tasks];
 		updated[index].done = !updated[index].done;
 		setTasks(updated);
 	};
 
-	// Remove a task
+	// Remove a task.
 	const removeTask = (index) => {
 		setTasks(tasks.filter((_, i) => i !== index));
 	};
@@ -41,7 +57,6 @@ function App() {
 								placeholder="Add a new task..."
 							/>
 							<Button
-								isPrimary
 								onClick={addTask}
 							>
 								Add Task
@@ -51,31 +66,22 @@ function App() {
 						{/* Task list */}
 						<ul className="todo-list">
 							{tasks.map((task, i) => (
-								<li
-									key={i}
-									style={{
-										textDecoration: task.done ? 'line-through' : 'none',
-										display: 'flex',
-										justifyContent: 'space-between',
-										alignItems: 'center',
-										marginBottom: '4px',
-									}}
-								>
+								<li key={i}>
 									<span
 										onClick={() => toggleTask(i)}
-										style={{ cursor: 'pointer' }}
+										style={{ 
+											textDecoration: task.done ? 'line-through' : 'none',
+										}}
 									>
 										{task.text}
 									</span>
-									<Button
-										isDestructive
-										onClick={() => removeTask(i)}
-									>
-										Delete
-									</Button>
+									<Button onClick={() => removeTask(i)}>Delete</Button>
 								</li>
 							))}
 						</ul>
+
+						{/* Hint */}
+						<p className="hint-text">Click on a task to cross it off.</p>
 					</div>
 				</div>
 			</div>
