@@ -4,18 +4,18 @@
 I've aggregated each example into this plugin for reviewing convenience:
 - PHP in the context of WordPress, ideally a plugin: 
   - `wp-content/plugins/todo-list/todo-list.php`
-    - Enqueue styles, scripts and blocks, including registering the To-Do list block for the frontend, with the function **register_block_type()**. 
+    - Enqueues styles, scripts and blocks, including registering the To-Do list block for the frontend, with the function **register_block_type()**. 
 - Gutenberg block(s): 
   - `wp-content/plugins/todo-list/patterns`
     - Registers the **intro section** and **summary section** patterns.
 - JavaScript in the context of WordPress (nice to have): 
   - `wp-content/plugins/todo-list/blocks/todo-block/index.js`
-    - Register the To-Do List block into the editor UI with the function **registerBlockType()**.
+    - Registers the To-Do List block into the editor UI with the function **registerBlockType()**.
   - `wp-content/plugins/todo-list/src/App.jsx`
     - To-Do List markup & Add, Delete and localStorage functions:
 
 ## What it is
-This plugin creates a **React-based Gutenberg block** under the **Widgets** block category in the WordPress editor.
+This plugin creates a **React-based Gutenberg block** under the **Widgets** block category in the WordPress editor. It utilizes JSX for the markup.
 
 ## What it does
 - Renders a **dynamic To-Do list** where users can add and delete tasks.
