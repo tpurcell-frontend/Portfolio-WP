@@ -15,7 +15,8 @@
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start",
-    "sass": "sass --watch themes:themes"
+    "sass": "sass --watch themes/portfolio/scss/style.scss:themes/portfolio/style.css"
+
   },
   "author": "Travis Purcell"
 }

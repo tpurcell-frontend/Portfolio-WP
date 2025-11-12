@@ -15,6 +15,9 @@
     margin: 80px 0 0;
   }
 }
+.intro-section h2 {
+  font-style: italic;
+}
 
 .summary-section {
   background: #000;
@@ -50,6 +53,14 @@
 -------------------------------*/
 .block-editor-page .block-editor-block-list__block {
   color: #000 !important;
+}
+
+#todo-list-root {
+  margin: 0;
+}
+
+.todo-list-section {
+  margin: 50px 0;
 }
 
 .todo-app {
@@ -111,6 +122,10 @@
   font-style: italic;
   font-weight: bold;
   font-size: 16px;
+  transition: all 0.25s ease-in-out;
+}
+.todo-list li span:hover, .todo-list li span:focus, .todo-list li span:focus-visible {
+  color: #48d597;
 }
 
 button, input[type=submit] {

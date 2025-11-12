@@ -43,49 +43,53 @@ function App() {
 	};
 
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-12 col-md-8">
-					<div className="todo-app">
-						<h2>What's next?</h2>
+		<section className="todo-list-section">
+			<div className="container">
+				<div className="row">
+					<div className="col-12 col-md-8">
+						<div className="todo-app">
+							<h2>What's next?</h2>
 
-						{/* Input and Add button */}
-						<div className="todo-input-wrapper">
-							<TextControl
-								value={newTask}
-								onChange={setNewTask}
-								placeholder="Add a new task..."
-							/>
-							<Button
-								onClick={addTask}
-							>
-								Add Task
-							</Button>
+							{/* Input and Add button */}
+							<div className="todo-input-wrapper">
+								<TextControl
+									value={newTask}
+									onChange={setNewTask}
+									placeholder="Add a new task..."
+								/>
+								<Button
+									onClick={addTask}
+								>
+									Add Task
+								</Button>
+							</div>
+
+							{/* Task list */}
+							<ul className="todo-list">
+								{tasks.map((task, i) => (
+									<li key={i}>
+										<span
+											onClick={() => toggleTask(i)}
+											onKeyDown={e => e.key === 'Enter' && toggleTask(i)}
+											style={{ 
+												textDecoration: task.done ? "line-through" : "none",
+											}}
+											tabIndex="0"
+										>
+											{task.text}
+										</span>
+										<Button onClick={() => removeTask(i)}>Delete</Button>
+									</li>
+								))}
+							</ul>
+
+							{/* Hint */}
+							<p className="hint-text">Click on a task to cross it off.</p>
 						</div>
-
-						{/* Task list */}
-						<ul className="todo-list">
-							{tasks.map((task, i) => (
-								<li key={i}>
-									<span
-										onClick={() => toggleTask(i)}
-										style={{ 
-											textDecoration: task.done ? 'line-through' : 'none',
-										}}
-									>
-										{task.text}
-									</span>
-									<Button onClick={() => removeTask(i)}>Delete</Button>
-								</li>
-							))}
-						</ul>
-
-						{/* Hint */}
-						<p className="hint-text">Click on a task to cross it off.</p>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 

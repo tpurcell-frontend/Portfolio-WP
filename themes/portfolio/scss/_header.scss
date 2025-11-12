@@ -5,7 +5,6 @@ header {
     background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /* offset-x, offset-y, blur, color */
     
-
     @media (min-width: 768px) {
         padding: 1.5em 0;
     }
@@ -24,5 +23,11 @@ header {
 
     .wp-block-navigation-link {
         color: $color__white;
+    }
+
+    & > .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

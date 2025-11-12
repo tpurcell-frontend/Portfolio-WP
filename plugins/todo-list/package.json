@@ -8,7 +8,7 @@
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start",
-    "sass": "sass --watch scss:."
+    "sass": "sass --watch scss/todo.scss css/todo.css"
   },
   "dependencies": {
     "@wordpress/components": "^30.7.0",

@@ -35,6 +35,26 @@ p {
 	margin-bottom: 1em;
 }
 
+.wp-block-navigation {
+	margin: 0;
+}
+
+.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open {
+	background-color: $color__white;
+}
+
+a:not(.btn),
+.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content {
+	transition: $primary-transition;
+
+	&:hover,
+	&:focus,
+	&:focus-visible {
+		color: $corefire-green;
+		text-decoration: none;
+	}
+}
+
 .btn, input[value='submit'] {
 	color: #fff;
 	background-color: $color__blue;

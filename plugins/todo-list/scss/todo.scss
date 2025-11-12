@@ -9,6 +9,14 @@
   color: #000 !important;
 }
 
+#todo-list-root {
+	margin: 0;
+}
+
+.todo-list-section {
+	margin: 50px 0;
+}
+
 .todo-app {
 	background-color: $color__white;
     margin: 1rem auto;
@@ -75,6 +83,13 @@
 		font-style: italic;
 		font-weight: bold;
 		font-size: 16px;
+		transition: $primary-transition;
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			color: $corefire-green;
+		}
 	}
 }
 
@@ -150,7 +165,7 @@ button::after {
 }
 
 @media (min-width: 1024px) {
-	
+
 	.todo-app {
 		padding: 50px;
 	}

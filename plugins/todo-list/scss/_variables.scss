@@ -13,8 +13,12 @@ $color__theme: #dda255;
 $color__bg: #E5E5E5;
 $color__font-main: #000;
 
+$corefire-green: #48d597;
+
 $gradient1: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 $gradient2: linear-gradient(90deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 
 $serif: "Merriweather", serif;
 $sans-serif: "Montserrat", sans-serif;
+
+$primary-transition: all 0.25s ease-in-out !default;

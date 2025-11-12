@@ -24,11 +24,6 @@ header {
 header .wp-block-navigation-link {
   color: #fff;
 }
-header > .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .wp-block-site-title a {
   color: #fff;
@@ -80,24 +75,11 @@ p {
   margin-bottom: 1em;
 }
 
-.wp-block-navigation {
-  margin: 0;
+a:not(.btn) {
+  color: #48d597 !important;
 }
-
-.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open {
-  background-color: #fff;
-}
-
-a:not(.btn),
-.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content {
-  transition: all 0.25s ease-in-out;
-}
-a:not(.btn):hover, a:not(.btn):focus, a:not(.btn):focus-visible,
-.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content:hover,
-.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content:focus,
-.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content:focus-visible {
+a:not(.btn):hover, a:not(.btn):focus, a:not(.btn):focus-visible {
   color: #48d597;
-  text-decoration: none;
 }
 
 .btn, input[value=submit] {
