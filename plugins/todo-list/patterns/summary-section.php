@@ -40,7 +40,7 @@
                 <h2>React Functionality</h2>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph -->
-                <p>The React component (TodoApp) uses state hooks (useState) to manage the list of tasks. Users can add, toggle, and delete tasks interactively without reloading the page. The app also utilizes WordPress’s built-in React libraries—wp.element and wp.components—to ensure consistent styling and compatibility with the Gutenberg environment.</p>
+                <p>The React component (App) uses state hooks (useState) to manage the list of tasks. Users can add, toggle, and delete tasks interactively without reloading the page. The app also utilizes WordPress’s built-in React libraries—wp.element and wp.components—to ensure consistent styling and compatibility with the Gutenberg environment.</p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
